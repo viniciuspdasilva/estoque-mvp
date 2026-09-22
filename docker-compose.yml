@@ -1,0 +1,51 @@
+services:
+
+  postgres:
+    image: postgres:17-alpine
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: estoque_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d estoque_db" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  estoque-api:
+    build:
+      context: ./estoque-mvp-api
+      dockerfile: Dockerfile
+    container_name: estoque-mvp-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # O hostname 'postgres-db' corresponde exatamente ao nome do serviço acima
+    - DB_HOST=postgres-db      # Nome do serviço no Docker Compose
+    - DB_PORT=5432
+    - DB_NAME=estoque_db
+    - DB_USER=postgres
+    - DB_PASSWORD=postgrespassword
+    - DB_DDL=none
+
+  estoque-estatico:
+    build:
+      context: ./estoque-mvp-estatico
+      dockerfile: Dockerfile
+    container_name: estoque-estatico
+    ports:
+      - "80:80"
+    depends_on:
+      - estoque-api
+
+volumes:
+  pgdata:
