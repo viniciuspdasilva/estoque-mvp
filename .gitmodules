@@ -1,0 +1,6 @@
+[submodule "estoque-mvp-api"]
+	path = estoque-mvp-api
+	url = https://github.com/viniciuspdasilva/estoque-mvp-api.git
+[submodule "estoque-mvp-estatico"]
+	path = estoque-mvp-estatico
+	url = https://github.com/viniciuspdasilva/estoque-mvp-estatico.git
