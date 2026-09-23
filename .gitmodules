@@ -1,3 +1,6 @@
 [submodule "estoque-mvp-estatico"]
 	path = estoque-mvp-estatico
 	url = https://github.com/viniciuspdasilva/estoque-mvp-estatico.git
+[submodule "ecommerce-inventory-api"]
+	path = ecommerce-inventory-api
+	url = https://github.com/viniciuspdasilva/ecommerce-inventory-api.git
