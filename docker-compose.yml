@@ -20,11 +20,11 @@ services:
 
   estoque-api:
     build:
-      context: ./estoque-mvp-api
+      context: ./ecommerce-inventory-api
       dockerfile: Dockerfile
     container_name: estoque-mvp-api
     ports:
-      - "8080:8080"
+      - "8000:8000"
     depends_on:
       postgres:
         condition: service_healthy

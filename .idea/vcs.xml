@@ -2,7 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/estoque-mvp-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ecommerce-inventory-api" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/estoque-mvp-estatico" vcs="Git" />
   </component>
 </project>
